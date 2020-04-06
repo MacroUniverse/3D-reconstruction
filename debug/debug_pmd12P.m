@@ -1,0 +1,9 @@
+%pmd12P的调试
+[~,pmd1,pmd]=pmddatabase(7);
+[~,add,addpmd]=pmddatabase(6);
+pmd1=cat(3,pmd1,add);
+P=pmd12P(pmd1);
+disp('计算值为')
+disp(P)
+disp('实际为')
+disp([pmd(4,:);addpmd(4,:)])

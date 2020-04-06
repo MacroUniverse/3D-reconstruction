@@ -1,0 +1,40 @@
+%除去转动,只保留平移
+%V1,V2,v2满足size=[N,3];
+function [theta,x,y]=deturn(V1,V2)
+    guess=[0.15 0.15 0.1];
+    derr=1e-7;
+    err=1e-4;
+    x=guess(1); y=guess(2); z=guess(3);
+    step=0.1;
+    %牛顿法
+    for n=1:200
+        f=deturntrial(V1,V2,z,[x,y]);
+        fx=(deturntrial(V1,V2,z,[x+derr,y])-f)/derr;
+        fy=(deturntrial(V1,V2,z,[x,y+derr])-f)/derr;
+        fz=(deturntrial(V1,V2,z+derr,[x,y])-f)/derr;
+        dir=-vunit([fx,fy,fz]);
+        
+        %牛顿法
+        k=vmag([fx,fy,fz]);
+        dist=f/k;
+        x=x+dir(1)*dist; y=y+dir(2)*dist; z=z+dir(3)*dist;
+        
+        %自创法
+        %for temp=1:50
+        %    xn=dir(1)*step+x;  yn=dir(2)*step+y;  zn=dir(3)*step+z;
+        %    if deturntrial(V1,V2,zn,[xn,yn])>f
+        %        step=step/2;
+        %    else 
+        %        x=xn; y=yn; z=zn;
+        %        break;
+        %    end
+        % end
+        
+        % if xn-x<err || yn-y<err || zn-z<err
+        %    x=xn; y=yn; z=zn; break;
+        %elseif n==15
+         %   error('newton timeout')
+        %end
+    end
+     theta=z;
+end

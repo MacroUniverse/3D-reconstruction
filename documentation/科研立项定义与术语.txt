@@ -1,0 +1,53 @@
+科研立项定义与术语
+
+本地系
+相机系
+x,y,z相机系中本地系的x,y,z矢量
+i,j,k本地系中相机系的i,j,k矢量
+
+理论角误差
+理论误差半径
+实际点误差
+两直线距离
+
+
+P:      3-D point
+o:      3-D point with the max-error radius.
+kb:     specified two arguments for all 2-D lines.
+d:      ordinary two-dimentional point
+mn:    specified two-dimentional point
+L:       a space Ray of 6 arguments
+Lp:     position vector (the fist three arguments of L)
+Le:     unit direction vector (the last three argument of L) 
+vloc:   local vector
+vcam:   camera vector
+alpha:   camera parameter (picture wideth)
+beta:   camera parameter (picture hight)
+xi:        camera parameter (focus-screen distance)
+cam33: camera orientation
+Pcam:   camera origin point in local coordination
+Ploc:     local origin point in camera coordination
+rmns:   1-D cell array,each cell is an N-by-3 array.The first four rows is the rect array 
+            and the rest rows is the nmn array
+rect:     a 4-by-3 array,with the 1st and 2nd elements indicating Lenth1 and Lenth2 
+            and the elements rect(:,2:3) for 4 2-D points of the reference rectangle.
+nmn:    an N-by-3 array,with the first column specifying the point name in ascending order.
+tri:        an 6-by-3 array,with the first 3 rows of nmn of indicating the three points in
+            the screen and the last 3 rows of D indicating the three points in the local             coordination.
+pmd0:  4-by-3 array of original pyramid data. The first three rows is three base points P1,P2,P3
+            in local coordination.The 3 elements at 4th row is 3 corresponding angle of the pyramid
+            peak ang12, ang23, ang31.
+pmd1:  5-by-3 array of advanced pyramid data. The first three rows is three base point P1,P2,P3
+            in local coordination. The 3 elements at 4th row is 3 corresponding side edge L1,L2,L3. The
+            3 elements at 5th row is 3 corresponding angle of the pyramid peak ang12, ang23, ang31.
+pmd:    4-by-3 array of final pyramid data format. The fist 3 rows is the base points  P1, P2, P3
+            and the 4th row is the pyramid peak P (in the local coordination).
+Pmn:    N-by-5 array of the known points and it's mn coordinations Pmn=[P, mn];
+Pmntri: 3-by-5-by-N array made from Pmn, used for pmd analyse.
+     
+
+
+
+
+
+

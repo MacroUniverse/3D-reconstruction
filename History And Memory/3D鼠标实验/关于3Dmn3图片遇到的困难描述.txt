@@ -1,0 +1,5 @@
+现象:全部解为nan
+经过调试发现:
+mn的一点点误差可能导致pmd0理论无解!
+参考文件,debug_ntpmd
+pmd0解析解文件: sympmd
